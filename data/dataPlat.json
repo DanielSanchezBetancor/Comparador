@@ -1,0 +1,21 @@
+ [{
+		"nombre": "PlayStation 4"
+	}, {
+		"caracteristicas": "3 GHz"
+	},
+	{
+		"nombre": "Nintendo 3DS"
+	}, {
+		"caracteristicas": "1,5 GHz"
+	},
+	{
+		"nombre": "Xbox One"
+	}, {
+		"caracteristicas": "4 GHz"
+	},
+	{
+		"nombre": "PlayStation 3"
+	}, {
+		"caracteristicas": "1,5 GHz"
+	}
+]

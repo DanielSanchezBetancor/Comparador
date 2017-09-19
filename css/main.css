@@ -1,0 +1,62 @@
+.ventana_general {
+	font-size: 17px;
+	width: 80%;
+	margin: 0 auto;
+}
+.preseleccion {
+	border: solid 2px black;
+	border-radius: 10px;
+	box-shadow: 10px 5px 5px;
+	padding: 10px;
+}
+.ventana_radios {
+	width: 100%;
+    overflow: hidden;
+}
+.ventana_radios_1 {
+	width: 30%;
+	float:left;
+}
+.ventana_radios_2 {
+	width: 30%;
+	float: left;
+}
+.ventana_selects {
+	margin-top: 1%;
+}
+.ventana_selects_1 {
+}
+.ventana_selects_2 {
+	margin-top: 1%;
+}
+.ventana_selects_comparar {
+	margin-top: 1%;
+}
+.menu {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+	color: white;
+}
+.menu_item {
+	 width: 25%;
+	 float: left;
+	 text-align: center;
+}
+.menu_item:hover {
+	background-color: #000;
+}
+a {
+	color: white;
+}
+.focused {
+	background-color: #000;
+}
+.volver_atras {
+	color: black;
+}
+.volver_atras_div {
+	text-align: center;
+}

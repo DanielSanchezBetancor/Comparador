@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test Pagina </title>
+<script src="/comparador/js/funciones.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body onload="JuegoOPlataforma()">
+<div class="ventana_general">
+<div class="premenu"><img src="images/logo.png"></img></div>
+<ul class="menu">
+<a href="main.html"><li class="menu_item focused">Comparar</li></a>
+<a href="pages/juegos.html"><li class="menu_item">Juegos</li></a>
+<a href="pages/plataformas.html"><li class="menu_item">Plataformas</li></a>
+<a href="pages/dispositivos.html"><li class="menu_item">Dispositivos VR</li></a>
+</ul>
+<div class="preseleccion">
+<div class="ventana_radios">
+<div class="ventana_radios_1"><input type="radio" name="selected" value="juego" onclick="estadoRadioButton(this)">Juegos</div>
+<div class="ventana_radios_2"><input type="radio" name="selected" value="plataforma" onclick="estadoRadioButton(this)">Plataformas</div>
+<div class="ventana_radios_3"><input type="radio" name="selected" value="dispositivo" onclick="estadoRadioButton(this)">Dispositivos VR</div>
+</div>
+<div id="JoP"></div>
+</div>
+</div>
+</body>
+</html>
