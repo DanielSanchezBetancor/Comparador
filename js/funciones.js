@@ -1,5 +1,5 @@
 var optionsPlat = ["PlayStation 4", "Xbox One", "Nintendo 3DS", "PlayStation 3"];
-var optionsJueg = ["Shadow Of Mordor", "The Stanley Parable", "Call Of Duty", "Battlefield"];
+var optionsJueg = ["Shadow Of Mordor", "The Stanley Parable", "Call of Duty", "Battlefield"];
 var optionsDisp = ["HTC Vive", "Oculus Rift"];
 var opcion;
 function JuegoOPlataforma() {
@@ -119,7 +119,6 @@ function rellenarSegundoSelect() {
 }
 function estadoRadioButton(radioPres) {
 	opcion = radioPres.value;
-	console.log(opcion);
     JuegoOPlataforma();
 }
 function sacarDatos(opc) {

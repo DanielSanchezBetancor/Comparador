@@ -88,7 +88,7 @@ function manejarDatosJueg(arr) {
 			pos2 = i+1;
 		}
 	}
-	try {
+	/*try {
 	mensaje += "<tr><td>Numero de jugadores</td><td>" + arr[pos1].caracteristicas[0].Jugadores + "</td><td>"
 	} catch(err) {
 		mensaje += "<tr><td>Numero de jugadores</td><td>Sin jugadores</td><td>"
@@ -96,34 +96,51 @@ function manejarDatosJueg(arr) {
 	try {
 	mensaje += arr[pos2].caracteristicas[0].Jugadores + "</td></tr>"
 	} catch(err) {
-		console.log(err);
-		mensaje += "<tr><td>Numero de jugadores</td><td>Sin jugadores</td><td>"
+		mensaje += "Sin jugadores</td><td>"
 	}
 	try {
 	mensaje += "<tr><td>Género</td><td>" + arr[pos1].caracteristicas[1].Genero+ "</td><td>"
 	} catch(err) {
-		console.log(err);
 		mensaje += "<tr><td>Genero</td><td>Indefinido</td><td>"
 	}
 	try {
 	mensaje += arr[pos2].caracteristicas[1].Genero + "</td></tr>";
 	} catch(err) {
-		console.log(err);
 		mensaje += "<tr><td>Genero</td><td>Indefinido</td><td>"
 	}
 	try {
 	mensaje += "<tr><td>Tiempo de campaña</td><td>" + arr[pos1].caracteristicas[2].Campaña+ "</td>"
 	} catch(err) {
-		console.log(err);
 		mensaje += "<tr><td>Campaña</td><td>Indefinido</td><td>"
 	}
 	try {
 	mensaje += "<td>" + arr[pos2].caracteristicas[2].Campaña+ "</td><td>"
 	} catch(err) {
-		console.log(err);
 		mensaje += "<td>No tiene campaña</td>";
+	}*/
+	var arrCar1 = arr[pos1].caracteristicas[0];
+	var arrCar2 = arr[pos2].caracteristicas[0];
+	var caruni1 = new Array;
+	var caruni2 = new Array;
+	if (arrCar1.Jugadores === undefined || arrCar2.Jugadores === undefined) {
+		if (arrCar1.Jugadores === undefined) {
+			caruni2 = "En el lado de " + arr[pos2].nombre + " tiene " + arrCar2.Jugadores + " jugadores.";
+		} else {
+			caruni1 = "En el lado de " + arr[pos1].nombre + " tiene " + arrCar1.Jugadores + " jugadores.";
+		}
+		
+	} else {
+		mensaje += "<tr><td>Numero de jugadores</td><td>" + arrCar1.Jugadores + "</td><td>" + arrCar2.Jugadores + "</td></tr>";
 	}
-	
-	mensaje +="</table>";
+	mensaje +="</table>Las caracteristicas unicas de cada juego son:</br>" + arr[pos1].Nombre + "<li>";
+	for (var i = 0;i<caruni1.length;i++) {
+		mensaje += "<ul>" + arrCar1.Jugadores + "</ul>";
+	}
+	mensaje += "</li>";
+	mensaje += arr[pos1].Nombre + "<li>";
+	for (var i = 0;i<caruni1.length;i++) {
+		mensaje += "<ul>" + arrCar2.Jugadores + "</ul>";
+	}
+	mensaje += "</li>";
 	document.getElementById("infoprocesador").innerHTML = mensaje;
 }
