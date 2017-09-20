@@ -58,14 +58,14 @@ function manejarDatosPlat(arr) {
 	var mensaje = "";
 	var pos1, pos2;
 	for (var i = 0;i<arr.length;i++) {
-		if (var1 == arr[i].nombre) {
+		if (var1 == arr[i].Nombre) {
 			pos1 = i;
-		} else if (var2 == arr[i].nombre) {
+		} else if (var2 == arr[i].Nombre) {
 			pos2 = i;
 		}
 	}
-	mensaje = "<table><tr><td></td><td>" + arr[pos1].nombre 
-	+ "</td><td>"+ arr[pos2].nombre 
+	mensaje = "<table><tr><td></td><td>" + arr[pos1].Nombre 
+	+ "</td><td>"+ arr[pos2].Nombre 
 	+ "</td></tr><tr><td>GPU</td><td>" + arr[pos1+1].caracteristicas 
 	+ "</td><td>" + arr[pos2+1].caracteristicas + "</td></tr></table>";
 	document.getElementById("infoprocesador").innerHTML = mensaje;
@@ -77,14 +77,14 @@ function manejarDatosPlat(arr) {
 // car gen2  car1   car2
 function manejarDatosJueg(arr) {
 	var mensaje = "<table><tr><td></td><td>" + var1 + "</td><td>" + var2 + "</td></tr>";
-	//pos1 y pos2 apuntan al siguiente de encontdar el nombre (En el JSON por bytes: 0 - nombre ; 1 - caracteristicas
+	//pos1 y pos2 apuntan al siguiente de encontdar el Nombre (En el JSON por bytes: 0 - Nombre ; 1 - caracteristicas
 	var pos1 = 0;
 	var pos2 = 0;
 	//Buscamos dentdo del array cual es el elegido
 	for (var i = 0;i<arr.length;i++) {
-		if (var1 == arr[i].nombre) {
+		if (var1 == arr[i].Nombre) {
 			pos1 = i+1;
-		} else if (var2 == arr[i].nombre) {
+		} else if (var2 == arr[i].Nombre) {
 			pos2 = i+1;
 		}
 	}
@@ -117,29 +117,67 @@ function manejarDatosJueg(arr) {
 	mensaje += "<td>" + arr[pos2].caracteristicas[2].Campaña+ "</td><td>"
 	} catch(err) {
 		mensaje += "<td>No tiene campaña</td>";
-	}*/
-	var arrCar1 = arr[pos1].caracteristicas[0];
-	var arrCar2 = arr[pos2].caracteristicas[0];
+	}*/;
+	var arrCar1 = arr[pos1].caracteristicas;
+	var arrCar2 = arr[pos2].caracteristicas;
 	var caruni1 = new Array;
 	var caruni2 = new Array;
-	if (arrCar1.Jugadores === undefined || arrCar2.Jugadores === undefined) {
-		if (arrCar1.Jugadores === undefined) {
-			caruni2 = "En el lado de " + arr[pos2].nombre + " tiene " + arrCar2.Jugadores + " jugadores.";
+	var arrvalue1 = 0;
+	var arrvalue2 = 0;
+	//Puesto que el nombre cae en array[0+2^X] y las caracteristicas en array[1+2^x], restamos 1 en los arrays para encontrar los nombres
+	//Dentro del array de caracteristicas[][y], donde y representa
+	/*
+	0 -> Jugadores
+	1 -> Genero
+	2 -> Tiempo de campaña
+	*/
+	if (arrCar1[arrvalue1].Jugadores === undefined || arrCar2[arrvalue2].Jugadores === undefined) {
+		if (arrCar1[arrvalue1].Jugadores === undefined) {
+			if (arrCar2[arrvalue2].Jugadores == 1) {
+				caruni2[arrvalue2] = "Tiene 1 jugador.";
+			} else {
+				caruni2[arrvalue2] = "Tiene " + arrCar2[arrvalue2].Jugadores + " jugadores.";
+			}
+			arrvalue2++;
 		} else {
-			caruni1 = "En el lado de " + arr[pos1].nombre + " tiene " + arrCar1.Jugadores + " jugadores.";
+			if (arrCar1[arrvalue1].Jugadores == 1) {
+				caruni1[arrvalue1] = "Tiene 1 jugador.";
+			} else {
+				caruni1[arrvalue1] = "Tiene " + arrCar1[arrvalue1].Jugadores + " jugadores.";
+			}
+			arrvalue1++;
 		}
 		
 	} else {
-		mensaje += "<tr><td>Numero de jugadores</td><td>" + arrCar1.Jugadores + "</td><td>" + arrCar2.Jugadores + "</td></tr>";
+		mensaje += "<tr><td>Numero de jugadores</td><td>" + arrCar1[arrvalue1].Jugadores + "</td><td>" + arrCar2[arrvalue2].Jugadores + "</td></tr>";
+		arrvalue1++;
+		arrvalue2++;
 	}
-	mensaje +="</table>Las caracteristicas unicas de cada juego son:</br>" + arr[pos1].Nombre + "<li>";
-	for (var i = 0;i<caruni1.length;i++) {
-		mensaje += "<ul>" + arrCar1.Jugadores + "</ul>";
+	if (arrCar1[arrvalue1].Genero === undefined || arrCar2[arrvalue2].Genero === undefined) {
+		if (arrCar1[arrvalue1].Genero === undefined) {
+			caruni2[arrvalue2] = "Su genero es " + arrCar2[arrvalue2].Genero;
+		} else {
+			caruni1[arrvalue1] = "Su genero es " + arrCar1[arrvalue1].Genero;
+		}
+	} else {
+		mensaje += "<tr><td>Genero</td><td>" + arrCar1[arrvalue1].Genero + "</td><td>" + arrCar2[arrvalue2].Genero + "</td></tr>";
+	}
+	mensaje +="</table></br>Las caracteristicas unicas de cada juego son:</br><li>" + arr[pos1-1].Nombre;
+	if (caruni1.length == 0) {
+		mensaje += "<ul>No hay caracteristicas únicas en este juego</ul>";
+	} else { 
+		for (var i = 0;i<caruni1.length;i++) {
+			mensaje += "<ul>" + caruni1[i] + "</ul>";
+		}
 	}
 	mensaje += "</li>";
-	mensaje += arr[pos1].Nombre + "<li>";
-	for (var i = 0;i<caruni1.length;i++) {
-		mensaje += "<ul>" + arrCar2.Jugadores + "</ul>";
+	mensaje += "<li>" + arr[pos2-1].Nombre;
+	if (caruni2.length == 0) {
+		mensaje += "<ul>No hay caracteristicas únicas en este juego</ul>";
+	} else { 
+		for (var i = 0;i<caruni2.length;i++) {
+			mensaje += "<ul>" + caruni2[i] + "</ul>";
+		}
 	}
 	mensaje += "</li>";
 	document.getElementById("infoprocesador").innerHTML = mensaje;

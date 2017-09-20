@@ -1,13 +1,13 @@
  [{
-		"nombre": "Shadow Of Mordor"
+		"Nombre": "Shadow Of Mordor"
 	}, {
 		"caracteristicas": [{"Genero": "Accion-Aventura"}, {"Campaña": "3 horas"}]
 	}, {
-		"nombre": "The Stanley Parable"
+		"Nombre": "The Stanley Parable"
 	}, {
 		"caracteristicas": [{"Jugadores": "1"}, {"Genero": "Aventura conversacional"}, {"Campaña": "1 hora 30 minutos"}]
 	}, {
-		"nombre": "Call of Duty"
+		"Nombre": "Call of Duty"
 	}, {
 		"caracteristicas": [{"Jugadores": "2-64 en línea"}, {"Genero": "Simulador de guerra"}, {"Campaña": "5 horas"}]
 	}
