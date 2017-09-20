@@ -1,7 +1,7 @@
  [{
 		"Nombre": "Shadow Of Mordor"
 	}, {
-		"caracteristicas": [{"Genero": "Accion-Aventura"}, {"Campaña": "3 horas"}]
+		"caracteristicas": [{"Jugadores": "1"}, {"Genero": "Accion-Aventura"}, {"Campaña": "3 horas"}]
 	}, {
 		"Nombre": "The Stanley Parable"
 	}, {

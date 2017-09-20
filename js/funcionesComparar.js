@@ -147,7 +147,6 @@ function manejarDatosJueg(arr) {
 			}
 			arrvalue1++;
 		}
-		
 	} else {
 		mensaje += "<tr><td>Numero de jugadores</td><td>" + arrCar1[arrvalue1].Jugadores + "</td><td>" + arrCar2[arrvalue2].Jugadores + "</td></tr>";
 		arrvalue1++;
@@ -156,11 +155,28 @@ function manejarDatosJueg(arr) {
 	if (arrCar1[arrvalue1].Genero === undefined || arrCar2[arrvalue2].Genero === undefined) {
 		if (arrCar1[arrvalue1].Genero === undefined) {
 			caruni2[arrvalue2] = "Su genero es " + arrCar2[arrvalue2].Genero;
+			arrvalue2++;
 		} else {
 			caruni1[arrvalue1] = "Su genero es " + arrCar1[arrvalue1].Genero;
+			arrvalue1++;
 		}
 	} else {
 		mensaje += "<tr><td>Genero</td><td>" + arrCar1[arrvalue1].Genero + "</td><td>" + arrCar2[arrvalue2].Genero + "</td></tr>";
+		arrvalue1++;
+		arrvalue2++;
+	}
+		if (arrCar1[arrvalue1].Campaña === undefined || arrCar2[arrvalue2].Campaña === undefined) {
+		if (arrCar1[arrvalue1].Campaña === undefined) {
+			caruni2[arrvalue2] = "La duracion de la campaña es de " + arrCar2[arrvalue2].Campaña;
+			arrvalue2++;
+		} else {
+			caruni1[arrvalue1] = "La duracion de la camapaña es de " + arrCar1[arrvalue1].Campaña;
+			arrvalue1++;
+		}
+	} else {
+		mensaje += "<tr><td>Camapaña</td><td>" + arrCar1[arrvalue1].Campaña + "</td><td>" + arrCar2[arrvalue2].Campaña + "</td></tr>";
+		arrvalue1++;
+		arrvalue2++;
 	}
 	mensaje +="</table></br>Las caracteristicas unicas de cada juego son:</br><li>" + arr[pos1-1].Nombre;
 	if (caruni1.length == 0) {
